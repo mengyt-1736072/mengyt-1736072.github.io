@@ -1,107 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+<!doctype html>
 <title>Job Application</title>
-
-<!-- CSS -->
 <style>
-.myForm {
-font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-font-size: 0.8em;
-padding: 1em;
-border: 1px solid #ccc;
-border-radius: 3px;
-}
-
-.myForm * {
-box-sizing: border-box;
-}
-
-.myForm label {
-padding: 0;
-font-weight: bold;
-}
-
-.myForm input {
-border: 1px solid #ccc;
-border-radius: 3px;
-font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-font-size: 0.9em;
-padding: 0.5em;
-}
-
-.myForm input[type="email"],
-.myForm input[type="password"] 
-.myForm input[type="password_r"]{
-width: 12em;
-}
-
-.myForm button {
-padding: 0.7em;
-border-radius: 0.5em;
-background: #eee;
-border: none;
-font-weight: bold;
-}
-
-.myForm button:hover {
-background: #ccc;
-cursor: pointer;
-}
+  * {
+    box-sizing: border-box;
+  }
+  .myForm {
+    display: grid;
+    grid-template-areas: 
+      "customer taxi"
+      "customer extras"
+      "pickup dropoff"
+      "instructions instructions"
+      "submit submit";
+  	grid-template-columns: auto auto;  
+  	grid-template-rows: auto auto auto auto;
+    grid-gap: .8em .5em;
+    background: #eee;
+    padding: 1.2em;
+  }
+  .myForm textarea {
+    height: calc(100% - 1.5em);
+    }
+  .myForm button {
+    background: gray;
+    color: white;
+    padding: 1em;
+    }
+  .myForm input:not([type=radio]):not([type=checkbox]), 
+  .myForm textarea, 
+  .myForm select {
+   	width: 100%;
+    border: 0;
+    padding: 1em;
+    margin: .5em 0;
+  }
+  .myForm label {
+   display: block; 
+  }
+  fieldset {
+    border: 0;
+  }
+  #customer {
+    grid-area: customer;
+  }
+  #taxi {
+    grid-area: taxi;
+  }
+  #extras {
+    grid-area: extras;
+  }
+  #pickup {
+    grid-area: pickup;
+  }
+  #dropoff {
+    grid-area: dropoff;
+  }
+  #instructions {
+    grid-area: instructions;
+  }
+  #submit {
+    grid-area: submit;
+  }
 </style>
-</head>
-<body>
-
-<h2>Job Application</h2>
-
-<form action="http://gclass.alexburner.com/formtest.php" method="post">
-
-	<fieldset>
-		<legend>Account</legend>
-		<div class="field">
-			<label>Email:
-                <input type="email" name="email">
-            </label> 
-		</div>
-		<div class="field">
-			<label>Password:
-                <input type="password" name="password">
-            </label> 
-		</div>
-		<div class="field">
-			<label>Repeat password:
-                <input type="password_r" name="password_r">
-            </label> 
-        </div>
-        <div class="field">
-            <label>
-                <input type="checkbox"> Remember me
-            </label>
-        </div>
-	</fieldset>
-
-	<fieldset>
-		<legend>Personal Information</legend>
-		<div class="field">
-			<label>Full Name:</label> 
-			<input type="text" name="name">
-		</div>
-		<div class="field">
-			<label>Street Address:</label> 
-			<input type="text" name="street">
-		</div>
-		<div class="field">
-			<label>City:</label> 
-			<input type="text" name="city">
-		</div>
-		<div class="field">
-			<label>State:</label> 
-			<select name="state">
-				<option value="" selected="true">Choose a State</option>
-				<option value="AL">Alabama</option>
+<form class="myForm">
+  
+  <fieldset id="customer">
+    <label for="customer_name">Name </label>
+    <input type="text" name="customer_name" id="customer_name" required>
+    <label for="email_address">Email </label>
+    <input type="email" name="email_address" id="email_address" required> 
+    <label for="password">Password </label>
+    <input type="password" name="password" id="password" required>  
+    <label for="password_repeat">Repeat Password </label>
+    <input type="password" name="password_repeat" id="password_repeat" required> 
+    <label for="address">Street Address </label>
+    <input type="address" name="address" id="address" required> 
+    <label for="city">City </label>
+    <input type="city" name="city" id="city" required>
+    <label for="state">State</label>
+    <select name="state" id="state">
+      <option value="" selected="selected">Choose a state</option>
+      <option value="AL">Alabama</option>
 				<option value="AK">Alaska</option>
 				<option value="AZ">Arizona</option>
 				<option value="AR">Arkansas</option>
@@ -152,81 +131,54 @@ cursor: pointer;
 				<option value="WV">West Virginia</option>
 				<option value="WI">Wisconsin</option>
 				<option value="WY">Wyoming</option>
-			</select>
-		</div>
-		<div class="field">
-			<label>ZIP:</label> 
-			<input type="text" name="zip">
-		</div>
-	</fieldset>
+    </select>
+    <label for="zip">ZIP </label>
+    <input type="zip" name="zip" id="zip" required>
+  </fieldset>
+  
+  <fieldset id="taxi">
+    <legend>Which taxi do you require?</legend>
+    <label> <input type="radio" name="taxi" id="taxi_car" required value="car"> Car </label>
+    <label> <input type="radio" name="taxi" id="taxi_van" required value="van"> Van </label>
+    <label> <input type="radio" name="taxi" id="taxi_tuk" required value="tuktuk"> Tuk Tuk </label>
+  </fieldset>
 
-	<fieldset>
-		<legend>Availability</legend>
-		<div class="field">
-			<label>Are you legally able to be employed in this country?</label> 
-			<input type="radio" name="legal" value="yes">Yes
-			<input type="radio" name="legal" value="no">No
-		</div>
-		<div class="field">
-			<label>What type of position are you seeking? (check all that apply)</label>
-			<ul>
-				<li><input type="checkbox" name="position_pt" value="parttime">Part time</li>
-				<li><input type="checkbox" name="position_ft" value="fulltime">Full time</li>
-				<li><input type="checkbox" name="position_sl" value="seasonal">Seasonal</li>
-				<li><input type="checkbox" name="position_tp" value="temporary">Temporary</li>
-			</ul>
-		</div>
-		<div class="field">
-			<label>Hours available</label>
-			<table>
-				<tr>
-					<td></td>
-					<th>Sun</th>
-					<th>Mon</th>
-					<th>Tue</th>
-					<th>Wed</th>
-					<th>Thu</th>
-					<th>Fri</th>
-					<th>Sat</th>
-				</tr>
-				<tr>
-					<th>From</th>
-					<td><input type="time" size="5" name="su_from"></td>
-					<td><input type="time" size="5" name="mo_from"></td>
-					<td><input type="time" size="5" name="tu_from"></td>
-					<td><input type="time" size="5" name="we_from"></td>
-					<td><input type="time" size="5" name="th_from"></td>
-					<td><input type="time" size="5" name="fr_from"></td>
-					<td><input type="time" size="5" name="sa_from"></td>
-				</tr>
-				<tr>
-					<th>Until</th>
-					<td><input type="time" size="5" name="su_until"></td>
-					<td><input type="time" size="5" name="mo_until"></td>
-					<td><input type="time" size="5" name="tu_until"></td>
-					<td><input type="time" size="5" name="we_until"></td>
-					<td><input type="time" size="5" name="th_until"></td>
-					<td><input type="time" size="5" name="fr_until"></td>
-					<td><input type="time" size="5" name="sa_until"></td>
-				</tr>
-			</table>
-		</div>
-	</fieldset>
+  <fieldset id="extras">
+    <legend>Extras</legend>
+    <label> <input type="checkbox" name="extras" id="extras_baby" value="baby"> Baby Seat </label>
+    <label> <input type="checkbox" name="extras" id="extras_wheel" value="wheelchair"> Wheelchair Access </label>
+    <label> <input type="checkbox" name="extras" id="extras_tip" value="tip"> Stock Tip </label>
+  </fieldset>
+  
+  <fieldset id="pickup">
+    <label for="pickup_time">Pickup Date/Time</label>
+    <input type="datetime-local" name="pickup_time" id="pickup_time" required>
 
-	<fieldset>
-		<legend>Personal Statement</legend>
-		<div class="field">
-			<label>Why do you deserve this job?</label><br>
-			<textarea name="deserve" rows="6" cols="60"></textarea>
-		</div>
-		<div class="field">
-			<label>Describe a recent project:</label><br>
-			<textarea name="project" rows="6" cols="60"></textarea>
-		</div>
-	</fieldset>
+    <label for="pickup_place">Pickup Place</label>
+    <select name="pickup_place" id="pickup_place">
+      <option value="" selected="selected">Select One</option>
+      <option value="office" >Taxi Office</option>
+      <option value="town_hall" >Town Hall</option>
+      <option value="telepathy" >We'll Guess!</option>
+    </select>
+  </fieldset>
 
-	<input type="submit" value="Submit form">
+  <fieldset id="dropoff">
+  <label for="dropoff_place">Dropoff Place</label>
+    <input type="text" name="dropoff_place" id="dropoff_place" required list="destinations">
+
+    <datalist id="destinations">
+      <option value="Airport">
+      <option value="Beach">
+      <option value="Fred Flinstone's House">
+    </datalist>
+  </fieldset>
+  
+  <fieldset id="instructions">
+    <label for="comments">Special Instructions</label>
+    <textarea name="comments" id="comments" maxlength="500"></textarea>
+  </fieldset>
+
+  <button id="submit">Submit Booking</button>
 
 </form>
-</body>
-</html>
