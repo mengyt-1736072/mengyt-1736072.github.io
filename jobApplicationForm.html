@@ -65,14 +65,16 @@
 <form class="myForm">
   
   <fieldset id="customer">
-    <label for="customer_name">Name </label>
-    <input type="text" name="customer_name" id="customer_name" required>
+    <p>Account</p>
     <label for="email_address">Email </label>
     <input type="email" name="email_address" id="email_address" required> 
     <label for="password">Password </label>
     <input type="password" name="password" id="password" required>  
     <label for="password_repeat">Repeat Password </label>
     <input type="password" name="password_repeat" id="password_repeat" required> 
+    <p>Personal Information</p>
+    <label for="customer_name">Name </label>
+    <input type="text" name="customer_name" id="customer_name" required>
     <label for="address">Street Address </label>
     <input type="address" name="address" id="address" required> 
     <label for="city">City </label>
@@ -184,17 +186,6 @@
 					<td><input type="time" size="5" name="sa_until"></td>
 				</tr>
 			</table>
-  </fieldset>
-
-  <fieldset id="dropoff">
-  <label for="dropoff_place">Dropoff Place</label>
-    <input type="text" name="dropoff_place" id="dropoff_place" required list="destinations">
-
-    <datalist id="destinations">
-      <option value="Airport">
-      <option value="Beach">
-      <option value="Fred Flinstone's House">
-    </datalist>
   </fieldset>
   
   <fieldset id="instructions">
