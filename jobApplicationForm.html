@@ -1,8 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Job Application</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Job Application</title>
+
+<!-- CSS -->
+<style>
+.myForm {
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 0.8em;
+padding: 1em;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.myForm * {
+box-sizing: border-box;
+}
+
+.myForm label {
+padding: 0;
+font-weight: bold;
+}
+
+.myForm input {
+border: 1px solid #ccc;
+border-radius: 3px;
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 0.9em;
+padding: 0.5em;
+}
+
+.myForm input[type="email"],
+.myForm input[type="password"] 
+.myForm input[type="password_r"]{
+width: 12em;
+}
+
+.myForm button {
+padding: 0.7em;
+border-radius: 0.5em;
+background: #eee;
+border: none;
+font-weight: bold;
+}
+
+.myForm button:hover {
+background: #ccc;
+cursor: pointer;
+}
+</style>
 </head>
 <body>
 
@@ -13,26 +62,32 @@
 	<fieldset>
 		<legend>Account</legend>
 		<div class="field">
-			<label>Email:</label> 
-			<input type="text" name="email">
+			<label>Email:
+                <input type="email" name="email">
+            </label> 
 		</div>
 		<div class="field">
-			<label>Password:</label> 
-			<input type="password" name="password">
+			<label>Password:
+                <input type="password" name="password">
+            </label> 
 		</div>
 		<div class="field">
-			<label>Repeat password:</label> 
-			<input type="password" name="password_r">
-		</div>
+			<label>Repeat password:
+                <input type="password_r" name="password_r">
+            </label> 
+        </div>
+        <div class="field">
+            <label>
+                <input type="checkbox"> Remember me
+            </label>
+        </div>
 	</fieldset>
 
 	<fieldset>
 		<legend>Personal Information</legend>
 		<div class="field">
-			<label>First Name:</label> 
-			<input type="text" name="firstname"><br>
-			<label>Last Name:</label> 
-			<input type="text" name="lastname">
+			<label>Full Name:</label> 
+			<input type="text" name="name">
 		</div>
 		<div class="field">
 			<label>Street Address:</label> 
