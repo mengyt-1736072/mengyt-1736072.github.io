@@ -151,16 +151,39 @@
   </fieldset>
   
   <fieldset id="pickup">
-    <label for="pickup_time">Pickup Date/Time</label>
-    <input type="datetime-local" name="pickup_time" id="pickup_time" required>
-
-    <label for="pickup_place">Pickup Place</label>
-    <select name="pickup_place" id="pickup_place">
-      <option value="" selected="selected">Select One</option>
-      <option value="office" >Taxi Office</option>
-      <option value="town_hall" >Town Hall</option>
-      <option value="telepathy" >We'll Guess!</option>
-    </select>
+    <label for="hours">Hours available</label>
+    <table>
+				<tr>
+					<td></td>
+					<th>Sun</th>
+					<th>Mon</th>
+					<th>Tue</th>
+					<th>Wed</th>
+					<th>Thu</th>
+					<th>Fri</th>
+					<th>Sat</th>
+				</tr>
+				<tr>
+					<th>From</th>
+					<td><input type="time" size="5" name="su_from"></td>
+					<td><input type="time" size="5" name="mo_from"></td>
+					<td><input type="time" size="5" name="tu_from"></td>
+					<td><input type="time" size="5" name="we_from"></td>
+					<td><input type="time" size="5" name="th_from"></td>
+					<td><input type="time" size="5" name="fr_from"></td>
+					<td><input type="time" size="5" name="sa_from"></td>
+				</tr>
+				<tr>
+					<th>Until</th>
+					<td><input type="time" size="5" name="su_until"></td>
+					<td><input type="time" size="5" name="mo_until"></td>
+					<td><input type="time" size="5" name="tu_until"></td>
+					<td><input type="time" size="5" name="we_until"></td>
+					<td><input type="time" size="5" name="th_until"></td>
+					<td><input type="time" size="5" name="fr_until"></td>
+					<td><input type="time" size="5" name="sa_until"></td>
+				</tr>
+			</table>
   </fieldset>
 
   <fieldset id="dropoff">
